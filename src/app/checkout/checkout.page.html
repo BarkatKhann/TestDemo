@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="proDetail">
+    <ion-card>
+      <div>
+        <img [src]="proDetail.images[0]" alt="">
+      </div>
+      <div class="cardContent">
+        <h5>{{proDetail.title}}</h5>
+        <h5>{{proDetail.price}}</h5>
+      </div>
+    </ion-card> 
+    <ion-card>
+     <ion-list class="radioList">
+       <ion-radio-group (ionChange)="checkValue($event)" [(ngModel)]="selectMode">
+         <ion-list-header>
+           <h4>Suggested for you </h4>
+         </ion-list-header>
+         <ion-item>
+           <ion-radio value="online"></ion-radio>
+           <ion-label class="Paylabel">Online</ion-label>
+         </ion-item>
+     
+         <ion-item>
+           <ion-radio value="cash"></ion-radio>
+           <ion-label class="Paylabel">Cash on Delivery</ion-label>
+         </ion-item>
+       </ion-radio-group>
+     </ion-list>
+    </ion-card>
+    <ion-card class="detail">
+     <p class="p1" style="font-size: 18px;" ><b>Price Details:</b></p>
+     <ion-row>
+       <ion-col size="6" class="colDiv">
+         <p class="p2">Price items)</p>
+       </ion-col>
+       <ion-col size="6" class="colDiv">
+         <p class="p2">₹{{proDetail.price}}</p>
+       </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col size="6" class="colDiv">
+         <p class="p2">Delivery Charges</p>
+       </ion-col>
+       <ion-col size="6" class="colDiv">
+         <p class="p2">FREE</p>
+       </ion-col>
+     </ion-row>
+     <ion-row class="total">
+       <ion-col size="6">
+         <p>Amount Payable</p>
+       </ion-col>
+       <ion-col size="6">
+         <p style="margin-top: 8px;">₹{{proDetail.price}}</p>
+       </ion-col>
+     </ion-row>
+   </ion-card>
+   <div class="btmDiv">
+     <p> TOTAL <b>₹{{proDetail.price}}</b></p>
+     <ion-button type="submit" style="display: inherit;" expand="full" (click)="finalOrder(proDetail)">CONTINUE</ion-button>
+   </div>
+  </div>
+
+</ion-content>

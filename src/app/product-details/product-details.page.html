@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>product-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="mainDiv" *ngIf="SingleProduct">
+    <div class="imgDiv">
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let proImg of SingleProduct.images" >
+            <img [src]="proImg">
+        </ion-slide> 
+      </ion-slides>
+    </div>
+    <div class="btmDiv"> 
+      <p><b>{{SingleProduct.title | slice:0:25}}</b></p>
+      <p style="color: gray;">{{SingleProduct.description | slice:0:50}}</p>
+      <p style="margin-top: 2px;"><b>Price: {{SingleProduct.price |currency:'INR'}}</b></p>
+    </div>
+      <ion-row>  
+        <ion-col><ion-button expand="full" (click)="gotoCart(SingleProduct)">ADD TO CART</ion-button></ion-col>
+        <ion-col><ion-button expand="full" (click)="gotoOrder(SingleProduct.id)">BUY NOW</ion-button></ion-col>
+      </ion-row>
+  </div> 
+</ion-content>
+  

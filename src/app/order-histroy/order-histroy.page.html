@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title style="margin-left: 10px;" slot="start">order-histroy</ion-title>   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let order of orderList">
+    <ion-row class="row">
+      <div style="display: flex; margin: 10px;">
+        <div>
+          <img class="img" [src]="order.images[0]">
+      </div>
+      <div style="margin-left:8px;">
+        <p style="color: black;"><b>{{order.description | slice :0:50}}</b></p>
+        <p class="p1">Category:{{order.category}}</p>
+        <p class="p1" style="font-size: 18px; color: black;"><b>₹{{order.price | number : '1.2-2'}}</b></p>
+        <div class="processing">  
+          <p>Processing</p>
+        </div>
+      </div>
+      </div>
+    </ion-row>
+  </ion-card>
+</ion-content>
+

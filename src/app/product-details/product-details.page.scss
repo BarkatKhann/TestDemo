@@ -1,0 +1,24 @@
+ion-header{
+  ion-toolbar{
+    --background: #ff7f03;
+    color: white;
+   }
+}
+ion-content{
+    .mainDiv{
+        img{
+          height: 40vh;
+          width: 100%;
+        }
+        .btmDiv{
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+          }
+          ion-button{
+           --background: #ff7f03;
+           height: 6vh;
+          }
+    }
+}
